@@ -55,4 +55,11 @@ public class Person
         this.mother = mother;
     }
 
+     /**
+     * Metodo para añadir hijos a la persona. Introduce una persona
+     */
+    public void addChild(Person child)
+    {
+        children.add(child);
+    }
 }
