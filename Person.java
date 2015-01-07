@@ -28,7 +28,7 @@ public class Person
         this.name = name;
         this.age = age;
     }
-    
+
     /**
      * Metodo que imprime por pantalla la informacion sobre la persona
      */
@@ -37,6 +37,22 @@ public class Person
         // Imprime por pantalla los datos de la persona
         System.out.println("Nombre: " + name);
         System.out.println("Edad: " + age);
+    }
+
+    /**
+     * Metodo para fijar el padre de la persona. Introduce una persona
+     */
+    public void setFather(Person father)
+    {
+        this.father = father;
+    }
+
+    /**
+     * Metodo para fijar la madre de la persona. Introduce una persona
+     */
+    public void setMother(Person mother)
+    {
+        this.mother = mother;
     }
 
 }
