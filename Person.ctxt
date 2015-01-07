@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=name\ age
+comment0.target=Person(java.lang.String,\ int)
+comment0.text=\r\n\ Constructor\ para\ la\ persona.\ Introduce\ el\ nombre\ y\ la\ edad\r\n
+comment1.params=
+comment1.target=void\ showData()
+comment1.text=\r\n\ Metodo\ que\ imprime\ por\ pantalla\ la\ informacion\ sobre\ la\ persona\r\n
+numComments=2
