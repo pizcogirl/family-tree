@@ -59,11 +59,25 @@ public class Person
     }
 
     /**
-     * Metodo para añadir hijos a la persona. Introduce una persona
+     * Metodo para añadir hijos a la persona. Introduce una persona.
+     * ¿Eres su padre (true/false)?
+     * 
      */
-    public void addChild(Person child)
+    public void addChild(Person child, boolean isFather)
     {
         children.add(child);
+        // Si es el padre añade como padre en el hijo a la persona,
+        // sino lo añade como su madre
+        if (isFather)
+        {
+            child.setFather(this);
+            // Añade a esta persona como hijo en el padre
+        }
+        else
+        {
+            child.setMother(this);
+            // Añade a esta persona como hijo en la madre
+        }
     }
 
     /**
@@ -99,5 +113,52 @@ public class Person
             }
         }
     }
-    
+
+    /**
+     * Devuelve si la persona tiene o no hijos
+     */
+    public boolean hasChildren()
+    {
+        boolean hasChildren = false;
+        // Si hay algun hijo en la coleccion, devolvera true
+        if (children.size() > 0)
+        {
+            hasChildren = true;
+        }
+        return hasChildren;
+    }
+
+    /**
+     * Devuelve el numero de hijos de la persona
+     */
+    public int numberOfChildren()
+    {
+        return children.size();
+    }
+
+    /**
+     * Devuelve si la persona tiene o no hermanos
+     */
+    public boolean hasBrothers()
+    {
+        // Almacena en variables locales el numero de hijos de la madre y el padre
+        int numberOfMotherChildren = 0;
+        if (mother != null)
+        {
+            numberOfMotherChildren = mother.numberOfChildren();
+        }
+        int numberOfFatherChildren = 0;
+        if (father != null)
+        {
+            numberOfFatherChildren = father.numberOfChildren();
+        }
+        // Si la madre o el padre tienen mas de un hijo, la persona tiene hermanos
+        boolean hasSibling = false;
+        if ((numberOfMotherChildren > 1) || (numberOfFatherChildren > 1))
+        {
+            hasSibling = true;
+        }
+        return hasSibling;
+    }
+
 }
