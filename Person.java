@@ -24,9 +24,12 @@ public class Person
      */
     public Person(String name, int age)
     {
-        // Inicializa las variables mediante parametros
+        // Inicializa las variables mediante parametros y el resto a null
         this.name = name;
         this.age = age;
+        father = null;
+        mother = null;
+        children = new ArrayList<Person>();
     }
 
     /**
@@ -55,11 +58,46 @@ public class Person
         this.mother = mother;
     }
 
-     /**
+    /**
      * Metodo para añadir hijos a la persona. Introduce una persona
      */
     public void addChild(Person child)
     {
         children.add(child);
     }
+
+    /**
+     * Metodo para imprimir por pantalla la informacion sobre los padres
+     */
+    public void showParentsData()
+    {
+        // Si tiene padre almacenado, imprime su informacion por pantalla
+        if (father != null)
+        {
+            System.out.println("Padre:");
+            father.showData();
+        }
+        // Si tiene madre almacenada, imprime su informacion por pantalla
+        if (mother != null)
+        {
+            System.out.println("Madre:");
+            mother.showData();
+        }
+    }
+
+    /**
+     * Metodo para imprimir por pantalla la informacion sobre los hijos
+     */
+    public void showChildrenData()
+    {
+        // Si tiene algun hijo almacenado, imprime la informacion de todos por pantalla
+        if (children.size() > 0)
+        {
+            for (Person child : children)
+            {
+                child.showData();
+            }
+        }
+    }
+    
 }
